@@ -1,0 +1,1717 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>组会报告</title>
+
+    <link rel="stylesheet" href="../dist/reset.css" />
+    <link rel="stylesheet" href="../dist/reveal.css" />
+    <link rel="stylesheet" href="../dist/theme/white.css" />
+    <link rel="stylesheet" href="../plugin/highlight/monokai.css" />
+    <link rel="stylesheet" href="../plugin/mac-window.css" />
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-name="">
+          <section data-pagetype="cover">智能化需求管理平台</section>
+          <section data-pagetype="content">
+            <h3>会议日程</h3>
+            <ol>
+              <li>黄钇茗：技术栈的简单培训</li>
+              <li>黄钇茗：项目任务分配</li>
+              <li>张芷若：怎么基于现有代码开发</li>
+              <li>提问环节</li>
+            </ol>
+          </section>
+        </section>
+        <section data-name="技术栈培训">
+          <section data-pagetype="section">
+            <h3>技术栈培训</h3>
+          </section>
+          <!-- Slide 1: 开篇总览 -->
+          <section data-pagetype="content">
+            <h2>Web 开发三剑客 ⚔️</h2>
+            <p>构建现代网页的基石</p>
+            <div
+              style="
+                display: flex;
+                justify-content: space-around;
+                margin-top: 40px;
+                text-align: center;
+              "
+            >
+              <div style="flex: 1">
+                <div style="font-size: 3em">🦴</div>
+                <h3>HTML</h3>
+                <p>结构 (Structure)</p>
+              </div>
+              <div style="flex: 1">
+                <div style="font-size: 3em">🎨</div>
+                <h3>CSS</h3>
+                <p>表现 (Presentation)</p>
+              </div>
+              <div style="flex: 1">
+                <div style="font-size: 3em">⚡</div>
+                <h3>JavaScript</h3>
+                <p>行为 (Behavior)</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Slide 2: HTML 概念 -->
+          <section data-pagetype="content">
+            <h3>1. HTML: 网页的骨骼 🦴</h3>
+            <ul>
+              <li>
+                <strong>H</strong>yper<strong>T</strong>ext
+                <strong>M</strong>arkup <strong>L</strong>anguage
+              </li>
+              <li><strong>核心任务：</strong> 定义网页内容的含义和结构。</li>
+              <li>不是编程语言，而是<strong>标记语言</strong>。</li>
+              <li>
+                它告诉浏览器：
+                <ul>
+                  <li>这是一张图片 <code>&lt;img&gt;</code></li>
+                  <li>这是一个标题 <code>&lt;h1&gt;</code></li>
+                  <li>这是一个按钮 <code>&lt;button&gt;</code></li>
+                </ul>
+              </li>
+            </ul>
+          </section>
+
+          <!-- Slide 3: HTML 代码示例 -->
+          <section data-pagetype="content">
+            <h3>HTML 实例：构建一个“素颜”卡片</h3>
+            <p>浏览器按照从上到下的顺序流式渲染内容：</p>
+            <pre><code class="language-html">
+<!-- 这是一个简单的用户卡片结构 -->
+<article class="profile-card">
+  <!-- 头像 -->
+  <img src="avatar.jpg" alt="用户头像">
+  
+  <!-- 文本信息 -->
+  <h2>Bruce Wayne</h2>
+  <p>我是个有钱人，晚上偶尔出去散步。</p>
+  
+  <!-- 交互元素 -->
+  <button>加好友</button>
+</article>
+  </code></pre>
+            <small style="opacity: 0.7"
+              >此时页面看起来非常单调，元素也是垂直堆叠的。</small
+            >
+          </section>
+
+          <!-- Slide 4: HTML 语义化 -->
+          <section data-pagetype="content">
+            <h3>为什么标签不能乱用？(语义化)</h3>
+            <p>
+              虽然用
+              <code>&lt;div&gt;</code>
+              配合样式也能做成标题的样子，但我们推荐使用正确的标签：
+            </p>
+            <br />
+            <ul>
+              <li>
+                <strong>SEO (搜索引擎优化)：</strong> Google 爬虫通过
+                <code>&lt;h1&gt;</code> 知道这是页面的重点。
+              </li>
+              <li>
+                <strong>无障碍访问 (A11y)：</strong> 盲人阅读器通过
+                <code>&lt;nav&gt;</code> 知道这是导航栏，通过
+                <code>&lt;button&gt;</code> 知道这是可以点击的。
+              </li>
+            </ul>
+            <div
+              style="
+                background: #eef;
+                padding: 15px;
+                border-left: 5px solid #4a90e2;
+                margin-top: 20px;
+              "
+            >
+              <strong>代码如人：</strong>
+              结构清晰，不仅机器读得懂，同事也读得懂。
+            </div>
+          </section>
+
+          <!-- Slide 5: CSS 概念 -->
+          <section data-pagetype="content">
+            <h3>2. CSS: 赋予页面美感与布局 🎨</h3>
+            <ul>
+              <li>
+                <strong>C</strong>ascading <strong>S</strong>tyle
+                <strong>S</strong>heets
+              </li>
+              <li>
+                <strong>核心任务：</strong> 决定 HTML 元素看起来是什么样。
+              </li>
+              <li>
+                <strong>它能做什么？</strong>
+                <ul>
+                  <li>🖌️ <strong>美化：</strong> 颜色、字体、阴影、圆角。</li>
+                  <li>
+                    📐
+                    <strong>布局：</strong> 让元素横向排列、居中、响应式调整。
+                  </li>
+                  <li>🎬 <strong>动画：</strong> 过渡效果、关键帧动画。</li>
+                </ul>
+              </li>
+            </ul>
+          </section>
+
+          <!-- Slide 6: CSS 代码示例 -->
+          <section data-pagetype="content">
+            <h3>CSS 实例：给卡片“化妆”</h3>
+            <p>
+              通过<strong>选择器</strong>选中 HTML
+              标签，并应用<strong>属性</strong>。
+            </p>
+            <pre><code class="language-css">
+/* 选中卡片容器 */
+.profile-card {
+  background: white;
+  border-radius: 12px;       /* 圆角 */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* 阴影让它浮起来 */
+  text-align: center;        /* 让文字居中 */
+  width: 300px;
+}
+
+/* 选中里面的按钮 */
+.profile-card button {
+  background-color: #3b82f6; /* 蓝色背景 */
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  cursor: pointer;           /* 鼠标放上去变小手 */
+}
+  </code></pre>
+          </section>
+
+          <!-- Slide 7: CSS 布局 (Flexbox) -->
+          <section data-pagetype="content">
+            <h3>布局神器：Flexbox & Grid</h3>
+            <p>以前我们要把两个东西并排很难，现在很简单：</p>
+            <pre><code class="language-css">
+.container {
+  display: flex;           /* 开启弹性布局模式 */
+  justify-content: center; /* 主轴居中（水平） */
+  align-items: center;     /* 交叉轴居中（垂直） */
+  gap: 20px;               /* 元素之间的间距 */
+}
+  </code></pre>
+            <p>CSS 让网页从“文本文档”变成了“精美的应用程序界面”。</p>
+          </section>
+
+          <!-- Slide 8: JavaScript 概念 -->
+          <section data-pagetype="content">
+            <h3>3. JavaScript: 注入灵魂与交互 ⚡</h3>
+            <ul>
+              <li>
+                网页的<strong>编程语言</strong>（拥有逻辑、循环、变量、函数）。
+              </li>
+              <li><strong>核心任务：</strong> 响应用户操作，动态修改页面。</li>
+              <li>
+                <strong>没有 JS 的页面是静态的：</strong>
+                点击按钮没有任何反应，数据无法更新。
+              </li>
+              <li>
+                <strong>有了 JS：</strong>
+                <ul>
+                  <li>🖱️ 响应点击、滚动、键盘输入。</li>
+                  <li>📡 发送网络请求 (API)。</li>
+                  <li>🔄 不刷新页面的情况下更新内容。</li>
+                </ul>
+              </li>
+            </ul>
+          </section>
+
+          <!-- Slide 9: JavaScript 代码示例 -->
+          <section data-pagetype="content">
+            <h3>JS 实例：让按钮“活”过来</h3>
+            <p>我们需要监听用户的点击，并执行逻辑。</p>
+            <pre><code class="language-javascript">
+// 1. 获取元素：在文档中找到那个按钮
+const btn = document.querySelector('button');
+const title = document.querySelector('h2');
+
+// 2. 监听事件：当用户点击时...
+btn.addEventListener('click', () => {
+  
+  // 3. 执行逻辑：修改 HTML 内容和 CSS 样式
+  btn.textContent = '已发送请求...';
+  btn.style.backgroundColor = '#ccc'; // 按钮变灰
+  
+  // 模拟简单的交互反馈
+  alert(`已向 ${title.textContent} 发送好友申请！`);
+});
+  </code></pre>
+          </section>
+
+          <!-- Slide 10: DOM 机制 -->
+          <section data-pagetype="content">
+            <h3>幕后机制：DOM (文档对象模型)</h3>
+            <p>
+              JavaScript 并不直接操作 HTML 文本文件，它操作的是内存中的
+              <strong>DOM 树</strong>。
+            </p>
+            <div
+              style="
+                border: 2px dashed #666;
+                padding: 20px;
+                margin: 20px 0;
+                border-radius: 8px;
+              "
+            >
+              <h4 style="margin: 0">流程图解</h4>
+              <p>
+                用户点击 ➡️ 浏览器触发 JS 事件 ➡️ JS 修改 DOM 节点 ➡️
+                浏览器重新绘制页面
+              </p>
+            </div>
+            <ul>
+              <li>HTML 是建筑图纸。</li>
+              <li>DOM 是盖好的房子。</li>
+              <li>JS 是可以随意装修、改建的施工队。</li>
+            </ul>
+          </section>
+
+          <!-- Slide 11: 总结 -->
+          <section data-pagetype="content">
+            <h3>总结：三剑客的协作</h3>
+            <table
+              style="width: 100%; border-collapse: collapse; font-size: 0.8em"
+            >
+              <tr style="background-color: #f8f9fa">
+                <th style="padding: 10px; border-bottom: 2px solid #ddd">
+                  技术
+                </th>
+                <th style="padding: 10px; border-bottom: 2px solid #ddd">
+                  角色
+                </th>
+                <th style="padding: 10px; border-bottom: 2px solid #ddd">
+                  如果你只有它...
+                </th>
+              </tr>
+              <tr>
+                <td style="padding: 10px; border-bottom: 1px solid #ddd">
+                  <strong>HTML</strong>
+                </td>
+                <td>名词 (骨架)</td>
+                <td>页面只是纯文本，像 Word 文档，虽然丑但能看。</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; border-bottom: 1px solid #ddd">
+                  <strong>CSS</strong>
+                </td>
+                <td>形容词 (皮肤)</td>
+                <td>虽然好看，但按钮按了没反应，像一张精美的海报。</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px; border-bottom: 1px solid #ddd">
+                  <strong>JavaScript</strong>
+                </td>
+                <td>动词 (肌肉)</td>
+                <td>页面变得智能，可以交互，成为真正的 Web App。</td>
+              </tr>
+            </table>
+          </section>
+          <!-- Slide 12: Vue 3 开篇 -->
+          <section data-pagetype="content">
+            <h2 style="color: #42b883">Vue.js 3 🟢</h2>
+            <p>
+              <strong
+                >渐进式 JavaScript 框架 (The Progressive Framework)</strong
+              >
+            </p>
+            <div
+              style="
+                margin-top: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 40px;
+              "
+            >
+              <div style="text-align: left; max-width: 500px">
+                <ul>
+                  <li>
+                    🚀 <strong>易学易用：</strong> 建立在标准 HTML/CSS/JS 之上。
+                  </li>
+                  <li>⚡ <strong>高性能：</strong> 虚拟 DOM + 编译时优化。</li>
+                  <li>
+                    🧩 <strong>组件化：</strong> 像搭积木一样构建用户界面。
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <p style="margin-top: 30px; font-size: 0.8em; opacity: 0.8">
+              “不只是写代码，更是在描述你的想法。”
+            </p>
+          </section>
+
+          <!-- Slide 13: 核心哲学 - 声明式渲染 -->
+          <section data-pagetype="content">
+            <h3>Vue 的核心哲学：声明式 vs 命令式</h3>
+            <p>
+              原生 JS (命令式)
+              就像<strong>做菜</strong>，必须一步步教浏览器怎么做：
+            </p>
+            <pre><code class="language-javascript" style="opacity: 0.6;">
+// 命令式 (Imperative)
+const div = document.querySelector('#app');
+div.innerText = 'Hello'; // 手动找到元素，手动修改
+  </code></pre>
+
+            <p>
+              Vue (声明式)
+              就像<strong>点菜</strong>，你告诉它结果，它自己去处理过程：
+            </p>
+            <pre><code class="language-html">
+<!-- 声明式 (Declarative) -->
+<!-- 我只要在这个位置显示 message，具体怎么更新 DOM 我不管 -->
+<div>{{ message }}</div>
+  </code></pre>
+            <div
+              style="
+                background: #eef9f2;
+                padding: 10px;
+                border-radius: 5px;
+                border-left: 5px solid #42b883;
+              "
+            >
+              <strong>核心魔法：数据驱动视图 (Data-Driven View)</strong><br />
+              数据变了 ➡️ 界面自动更新。再也不用写
+              <code>document.querySelector</code> 了！
+            </div>
+          </section>
+
+          <!-- Slide 14: 单文件组件 (SFC) -->
+          <section data-pagetype="content">
+            <h3>SFC: 单文件组件 (.vue)</h3>
+            <p>
+              Vue 将一个组件的代码封装在一个
+              <code>.vue</code> 文件中，结构清晰：
+            </p>
+            <div style="display: flex; gap: 20px">
+              <div style="flex: 1; text-align: left">
+                <h4 style="margin: 0; color: #42b883">App.vue</h4>
+                <pre><code class="language-html">
+<!-- 1. 逻辑 (JavaScript) -->
+<script setup>
+  import { ref } from 'vue';
+  const count = ref(0);
+</script>
+
+<!-- 2. 结构 (HTML) -->
+<template>
+  <button @click="count++">
+    点击了 {{ count }} 次
+  </button>
+</template>
+
+<!-- 3. 样式 (CSS) -->
+<style scoped>
+  button { color: red; }
+</style>
+      </code></pre>
+              </div>
+              <div style="flex: 1; display: flex; align-items: center">
+                <ul>
+                  <li>
+                    <strong>&lt;script setup&gt;</strong>: 编写业务逻辑
+                    (Composition API)。
+                  </li>
+                  <li><strong>&lt;template&gt;</strong>: 定义 HTML 模板。</li>
+                  <li>
+                    <strong>&lt;style scoped&gt;</strong>: 定义样式 (scoped
+                    代表只在当前组件生效，不污染全局)。
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- Slide 15: 响应式系统 (Reactivity) -->
+          <section data-pagetype="content">
+            <h3>Vue 3 的心脏：响应式系统 ✨</h3>
+            <p>
+              在 JS 中，变量变了界面是不会动的。Vue 3 使用
+              <code>ref()</code> 来包裹变量，让它变成“响应式”的。
+            </p>
+
+            <pre><code class="language-javascript">
+import { ref } from 'vue';
+
+// ref 让普通数字变成了“可被监听”的数据
+const count = ref(0); 
+
+function increment() {
+  // 在 JS 中修改值需要加 .value
+  count.value++; 
+  // 🪄 此时，Vue 自动检测到变化，并更新页面上所有用到 count 的地方
+}
+  </code></pre>
+
+            <br />
+            <p><strong>为什么是 Vue 3？</strong></p>
+            <ul>
+              <li>
+                Vue 2 使用 <code>Object.defineProperty</code> (有局限性)。
+              </li>
+              <li>
+                Vue 3 使用 ES6
+                <strong>Proxy</strong>，性能更强，能监听更多类型的数据变化。
+              </li>
+            </ul>
+          </section>
+
+          <!-- Slide 16: 指令系统 (Directives) -->
+          <section data-pagetype="content">
+            <h3>模板语法：指令 (Directives)</h3>
+            <p>
+              Vue 在 HTML 中提供了一套特殊的属性（以 v- 开头）来处理常见的 DOM
+              逻辑：
+            </p>
+
+            <table
+              style="width: 100%; font-size: 0.8em; border-spacing: 0 10px"
+            >
+              <tr>
+                <td style="font-weight: bold; color: #42b883">v-if / v-else</td>
+                <td>条件渲染</td>
+                <td>
+                  <code>&lt;div v-if="isLogin"&gt;欢迎回来&lt;/div&gt;</code>
+                </td>
+              </tr>
+              <tr>
+                <td style="font-weight: bold; color: #42b883">v-for</td>
+                <td>列表循环</td>
+                <td>
+                  <code
+                    >&lt;li v-for="item in list"&gt;{{ item.name
+                    }}&lt;/li&gt;</code
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td style="font-weight: bold; color: #42b883">v-on (@)</td>
+                <td>事件监听</td>
+                <td>
+                  <code>&lt;button @click="submit"&gt;提交&lt;/button&gt;</code>
+                </td>
+              </tr>
+              <tr>
+                <td style="font-weight: bold; color: #42b883">v-model</td>
+                <td>双向绑定 (表单神器)</td>
+                <td>
+                  <code>&lt;input v-model="username"&gt;</code><br /><small
+                    >(输入框变->数据变；数据变->输入框变)</small
+                  >
+                </td>
+              </tr>
+            </table>
+          </section>
+
+          <!-- Slide 17: 组合式函数 (Composables) -->
+          <section data-pagetype="content">
+            <h3>Vue 3 的杀手锏：Composables</h3>
+            <p>在大型项目中，我们希望复用逻辑（比如“获取鼠标位置”）。</p>
+            <div style="display: flex; gap: 20px">
+              <div style="flex: 1">
+                <pre><code class="language-javascript">
+// mouse.js (自定义 Hook)
+import { ref, onMounted, onUnmounted } from 'vue'
+
+export function useMouse() {
+  const x = ref(0)
+  const y = ref(0)
+
+  function update(event) {
+    x.value = event.pageX
+    y.value = event.pageY
+  }
+
+  onMounted(() => window.addEventListener('mousemove', update))
+  onUnmounted(() => window.removeEventListener('mousemove', update))
+
+  return { x, y }
+}
+      </code></pre>
+              </div>
+              <div style="flex: 1; padding-top: 20px">
+                <p><strong>在组件中使用：</strong></p>
+                <pre><code class="language-javascript">
+<script setup>
+import { useMouse } from './mouse.js'
+
+// 像搭积木一样引入逻辑功能！
+const { x, y } = useMouse()
+</script>
+      </code></pre>
+                <p>这是 Vue 3 比 Vue 2 更有利于大型项目维护的关键。</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Slide 18: Vue 生态系统 -->
+          <section data-pagetype="content">
+            <h3>完整的生态系统</h3>
+            <p>Vue 不仅仅是一个核心库，它有一整套官方维护的工具链：</p>
+            <div
+              style="
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                margin-top: 30px;
+              "
+            >
+              <div style="width: 45%; margin-bottom: 20px">
+                <h4>⚡ Vite</h4>
+                <p>下一代前端构建工具。极速启动，瞬间热更新。</p>
+              </div>
+              <div style="width: 45%; margin-bottom: 20px">
+                <h4>🛣️ Vue Router</h4>
+                <p>官方路由管理器。构建单页面应用 (SPA) 必不可少。</p>
+              </div>
+              <div style="width: 45%; margin-bottom: 20px">
+                <h4>🍍 Pinia</h4>
+                <p>
+                  Vue 3 推荐的状态管理库。替代 Vuex，更简单，TypeScript
+                  支持更好。
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Slide 19: 总结 -->
+          <section data-pagetype="content">
+            <h3>从原生 JS 到 Vue 3 的进化</h3>
+            <ul style="line-height: 2em">
+              <li><strong>操作对象：</strong> DOM 元素 ➡️ 业务数据 (State)</li>
+              <li>
+                <strong>关注点：</strong> "怎么修改这个 div" ➡️ "这个 div
+                应该显示什么状态"
+              </li>
+              <li>
+                <strong>代码组织：</strong> 散落在各处的函数 ➡️ 高内聚的组件
+                (SFC)
+              </li>
+              <li>
+                <strong>复用性：</strong> 复制粘贴代码 ➡️ 组合式函数
+                (Composables)
+              </li>
+            </ul>
+            <br />
+            <h4 style="color: #42b883; text-align: center">Ready to Vue? 🚀</h4>
+          </section>
+          <!-- Slide 20: 为什么要用 UI 库？ -->
+          <section data-pagetype="content">
+            <h2 style="color: #409eff">Element Plus 🔵</h2>
+            <p><strong>基于 Vue 3 的桌面端组件库</strong></p>
+
+            <div
+              style="
+                margin-top: 30px;
+                display: flex;
+                justify-content: center;
+                gap: 40px;
+              "
+            >
+              <div
+                style="
+                  flex: 1;
+                  padding: 20px;
+                  background: #fdf6ec;
+                  border-radius: 8px;
+                "
+              >
+                <h4>😫 手写组件的痛</h4>
+                <ul style="font-size: 0.8em; text-align: left">
+                  <li>要自己写 CSS 调圆角、阴影。</li>
+                  <li>要自己处理浏览器兼容性。</li>
+                  <li>写一个“日期选择器”可能要花一周时间。</li>
+                </ul>
+              </div>
+              <div style="display: flex; align-items: center; font-size: 2em">
+                ➡️
+              </div>
+              <div
+                style="
+                  flex: 1;
+                  padding: 20px;
+                  background: #ecf5ff;
+                  border-radius: 8px;
+                "
+              >
+                <h4>😎 Element Plus 的爽</h4>
+                <ul style="font-size: 0.8em; text-align: left">
+                  <li>开箱即用，设计优雅。</li>
+                  <li>内置 100+ 个组件（按钮、表单、弹窗）。</li>
+                  <li>完全支持 TypeScript 和 Vue 3。</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- Slide 21: 快速安装与使用 -->
+          <section data-pagetype="content">
+            <h3>1分钟上手：从安装到使用</h3>
+            <p>Element Plus 就像是一个装满了预制件的工具箱。</p>
+
+            <div style="display: flex; gap: 20px; text-align: left">
+              <div style="flex: 1">
+                <small>1. 安装</small>
+                <pre><code class="language-bash">npm install element-plus --save</code></pre>
+
+                <small>2. 在 main.js 引入</small>
+                <pre><code class="language-javascript">
+import { createApp } from 'vue'
+import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css'
+import App from './App.vue'
+
+const app = createApp(App)
+app.use(ElementPlus) // ✨ 注入灵魂
+app.mount('#app')
+      </code></pre>
+              </div>
+              <div style="flex: 1">
+                <small>3. 在组件中使用</small>
+                <pre><code class="language-html">
+<template>
+  <!-- 以前我们需要写 button + css -->
+  <!-- 现在：直接用 el-button -->
+  <el-button type="primary">主要按钮</el-button>
+  <el-button type="success" round>圆角成功</el-button>
+  <el-button type="danger" icon="Delete" circle />
+</template>
+      </code></pre>
+                <div
+                  style="
+                    margin-top: 10px;
+                    border: 1px solid #ddd;
+                    padding: 10px;
+                    border-radius: 4px;
+                    text-align: center;
+                  "
+                >
+                  <span
+                    style="
+                      background: #409eff;
+                      color: white;
+                      padding: 8px 15px;
+                      border-radius: 4px;
+                      font-size: 0.8em;
+                      margin-right: 5px;
+                    "
+                    >主要按钮</span
+                  >
+                  <span
+                    style="
+                      background: #67c23a;
+                      color: white;
+                      padding: 8px 15px;
+                      border-radius: 20px;
+                      font-size: 0.8em;
+                    "
+                    >圆角成功</span
+                  >
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Slide 22: 布局系统 (Row & Col) -->
+          <section data-pagetype="content">
+            <h3>布局利器：Row & Col</h3>
+            <p>
+              不要再为了 `float` 或 `flex` 怎么对齐而掉头发了。Element Plus
+              提供了 <strong>24栅格系统</strong>。
+            </p>
+
+            <pre><code class="language-html">
+<!-- 意思是：一行里面，左边占 8/24，右边占 16/24 -->
+<el-row :gutter="20">
+  
+  <el-col :span="8">
+    <div class="grid-content">侧边栏 (1/3)</div>
+  </el-col>
+  
+  <el-col :span="16">
+    <div class="grid-content">主要内容区域 (2/3)</div>
+  </el-col>
+
+</el-row>
+  </code></pre>
+
+            <div style="margin-top: 20px; display: flex; gap: 10px">
+              <div
+                style="
+                  flex: 1;
+                  background: #d9ecff;
+                  padding: 20px;
+                  text-align: center;
+                  border-radius: 4px;
+                "
+              >
+                span=8
+              </div>
+              <div
+                style="
+                  flex: 2;
+                  background: #c6e2ff;
+                  padding: 20px;
+                  text-align: center;
+                  border-radius: 4px;
+                "
+              >
+                span=16
+              </div>
+            </div>
+          </section>
+
+          <!-- Slide 23: 复杂的表单变得简单 -->
+          <section data-pagetype="content">
+            <h3>生产力倍增：Form 表单</h3>
+            <p>最耗时的表单验证、标签对齐、控件样式，一行代码解决。</p>
+
+            <pre><code class="language-html">
+<el-form :model="form" label-width="120px">
+  
+  <el-form-item label="活动名称">
+    <el-input v-model="form.name" />
+  </el-form-item>
+
+  <el-form-item label="活动时间">
+    <!-- 😱 想想手写这个日期选择器要多久？ -->
+    <el-date-picker 
+      v-model="form.date" 
+      type="date" 
+      placeholder="选择日期" 
+    />
+  </el-form-item>
+  
+  <el-form-item>
+    <el-button type="primary" @click="onSubmit">立即创建</el-button>
+  </el-form-item>
+  
+</el-form>
+  </code></pre>
+            <small style="color: #909399"
+              >💡 配合 Vue 的响应式变量 <code>form</code>，数据自动同步。</small
+            >
+          </section>
+
+          <!-- Slide 24: 数据展示 (Table) -->
+          <section data-pagetype="content">
+            <h3>数据展示神器：Table 表格</h3>
+            <p>Excel 级别的表格体验。只需传入一个数组 (Array)，它自动渲染。</p>
+
+            <pre><code class="language-html">
+<!-- :data 绑定数据源 -->
+<el-table :data="tableData" style="width: 100%" stripe>
+  
+  <el-table-column prop="date" label="日期" width="180" />
+  <el-table-column prop="name" label="姓名" width="180" />
+  <el-table-column prop="address" label="地址" />
+  
+  <el-table-column label="操作">
+     <template #default>
+       <el-button size="small">编辑</el-button>
+     </template>
+  </el-table-column>
+
+</el-table>
+  </code></pre>
+            <p style="font-size: 0.8em">
+              ✨
+              <strong>更多黑科技：</strong>
+              只需要加一个属性，就能实现<code>sortable</code>(排序)、<code>fixed</code>(固定列)、<code>selection</code>(多选)。
+            </p>
+          </section>
+
+          <!-- Slide 25: 交互反馈 (Feedback) -->
+          <section data-pagetype="content">
+            <h3>优雅的交互反馈</h3>
+            <p>不要用那个丑陋的浏览器原生 <code>alert()</code> 了！</p>
+
+            <div style="display: flex; gap: 30px; margin-top: 30px">
+              <div style="flex: 1">
+                <h4>Message 消息提示</h4>
+                <pre><code class="language-javascript">
+import { ElMessage } from 'element-plus'
+
+// 轻轻地飘过一个提示
+ElMessage.success('恭喜，保存成功！')
+ElMessage.error('哎呀，出错了。')
+      </code></pre>
+              </div>
+
+              <div style="flex: 1">
+                <h4>MessageBox 确认框</h4>
+                <pre><code class="language-javascript">
+import { ElMessageBox } from 'element-plus'
+
+const deleteItem = () => {
+  ElMessageBox.confirm('确定删除吗？不可恢复。')
+    .then(() => {
+      // 用户点了确定
+    })
+    .catch(() => {
+      // 用户点了取消
+    })
+}
+      </code></pre>
+              </div>
+            </div>
+          </section>
+
+          <!-- Slide 26: 全流程总结 -->
+          <section data-pagetype="content">
+            <h3>Web 开发技术栈总结 🏁</h3>
+            <p>从 0 到 1 构建现代应用：</p>
+
+            <div style="position: relative; margin-top: 40px">
+              <!-- Timeline / Steps -->
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: flex-start;
+                "
+              >
+                <div style="width: 22%; text-align: center">
+                  <div style="font-size: 2em">🧱</div>
+                  <h4 style="margin: 10px 0">基础三剑客</h4>
+                  <p style="font-size: 0.7em">HTML/CSS/JS</p>
+                  <p style="font-size: 0.7em; color: #666">
+                    理解底层原理，万物之源。
+                  </p>
+                </div>
+
+                <div style="font-size: 2em; margin-top: 10px">➡️</div>
+
+                <div style="width: 22%; text-align: center">
+                  <div style="font-size: 2em">🚀</div>
+                  <h4 style="margin: 10px 0">Vue 3</h4>
+                  <p style="font-size: 0.7em">框架 / 逻辑层</p>
+                  <p style="font-size: 0.7em; color: #666">
+                    数据驱动，组件化，高效开发。
+                  </p>
+                </div>
+
+                <div style="font-size: 2em; margin-top: 10px">➡️</div>
+
+                <div style="width: 22%; text-align: center">
+                  <div style="font-size: 2em">🧩</div>
+                  <h4 style="margin: 10px 0">Element Plus</h4>
+                  <p style="font-size: 0.7em">UI 库 / 表现层</p>
+                  <p style="font-size: 0.7em; color: #666">
+                    美观现成的积木，专注业务逻辑。
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div
+              style="
+                margin-top: 50px;
+                text-align: center;
+                color: #409eff;
+                font-weight: bold;
+              "
+            >
+              🎉 现在，你已经准备好构建专业的 Web 应用了！
+            </div>
+          </section>
+          <!-- Slide 27: AI 时代的极速实战路径 -->
+          <section data-pagetype="content">
+            <h2>🚀 AI 时代的开发tips</h2>
+            <div
+              style="
+                display: flex;
+                gap: 30px;
+                margin-top: 30px;
+                align-items: stretch;
+              "
+            >
+              <!-- 左侧：学习策略 -->
+              <div
+                style="
+                  flex: 1;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 20px;
+                "
+              >
+                <!-- 策略 1: 基础知识 -->
+                <div
+                  style="
+                    background: #fff0f0;
+                    padding: 15px;
+                    border-radius: 8px;
+                    border-left: 5px solid #ff4d4f;
+                  "
+                >
+                  <h4 style="margin: 0; color: #cf1322">
+                    🚫 传统误区：系统死磕基础
+                  </h4>
+                  <p style="font-size: 0.8em; margin-top: 5px; color: #555">
+                    不需要从头看完 HTML/CSS/JS 的几百页文档。<br />
+                    <strong>策略：</strong>
+                    了解基本概念（盒子模型、DOM、变量）即可，语法细节交给 AI。
+                  </p>
+                </div>
+
+                <!-- 策略 2: 视频推荐 -->
+                <div
+                  style="
+                    background: #f0f5ff;
+                    padding: 15px;
+                    border-radius: 8px;
+                    border-left: 5px solid #2f54eb;
+                  "
+                >
+                  <h4 style="margin: 0; color: #1d39c4">
+                    📺 推荐资源 (Bilibili)
+                  </h4>
+                  <p style="font-size: 0.8em; margin-top: 5px">
+                    跟着视频过一遍流程，建立体感：
+                  </p>
+
+                  <div
+                    style="
+                      margin-top: 10px;
+                      display: flex;
+                      flex-direction: column;
+                      gap: 8px;
+                    "
+                  >
+                    <a
+                      href="https://www.bilibili.com/video/BV1Za4y1r7KE"
+                      target="_blank"
+                      style="
+                        text-decoration: none;
+                        color: #333;
+                        background: white;
+                        padding: 8px;
+                        border-radius: 4px;
+                        display: flex;
+                        align-items: center;
+                        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                      "
+                    >
+                      <span
+                        style="
+                          color: #fb7299;
+                          font-weight: bold;
+                          margin-right: 8px;
+                        "
+                        >▶️ Vue3 快速上手</span
+                      >
+                      <span style="font-size: 0.7em; color: #888"
+                        >(小满ZS / 基础语法)</span
+                      >
+                    </a>
+                    <a
+                      href="https://www.bilibili.com/video/BV1Ei421o7To"
+                      target="_blank"
+                      style="
+                        text-decoration: none;
+                        color: #333;
+                        background: white;
+                        padding: 8px;
+                        border-radius: 4px;
+                        display: flex;
+                        align-items: center;
+                        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                      "
+                    >
+                      <span
+                        style="
+                          color: #409eff;
+                          font-weight: bold;
+                          margin-right: 8px;
+                        "
+                        >▶️ Element Plus 实战</span
+                      >
+                      <span style="font-size: 0.7em; color: #888"
+                        >(后台管理系统搭建)</span
+                      >
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 右侧：AI 工作流 -->
+              <div
+                style="
+                  flex: 1;
+                  background: linear-gradient(135deg, #f3e8ff 0%, #e0c3fc 100%);
+                  padding: 20px;
+                  border-radius: 12px;
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: center;
+                "
+              >
+                <h3 style="color: #722ed1; text-align: center">🤖AI 编程</h3>
+
+                <div
+                  style="
+                    background: rgba(255, 255, 255, 0.6);
+                    padding: 15px;
+                    border-radius: 8px;
+                    margin-top: 10px;
+                  "
+                >
+                  <strong>👨‍💻 你的工作：</strong>
+                  <ul style="font-size: 0.8em; margin-bottom: 0">
+                    <li>设计页面逻辑</li>
+                    <li>描述需求 ("我要一个带搜索功能的表格")</li>
+                    <li>阅读代码，将 AI 生成的积木拼起来</li>
+                  </ul>
+                </div>
+
+                <div
+                  style="text-align: center; font-size: 1.5em; margin: 10px 0"
+                >
+                  ⬇️ 交互 ⬇️
+                </div>
+
+                <div
+                  style="
+                    background: rgba(255, 255, 255, 0.9);
+                    padding: 15px;
+                    border-radius: 8px;
+                    border: 1px dashed #722ed1;
+                  "
+                >
+                  <strong>🤖 AI (ChatGPT/Cursor) 的工作：</strong>
+                  <ul style="font-size: 0.8em; margin-bottom: 0">
+                    <li>编写繁琐的 HTML 结构</li>
+                    <li>调整 CSS 样式细节</li>
+                    <li>生成 Vue3 + Element Plus 模板代码</li>
+                  </ul>
+                </div>
+
+                <div
+                  style="
+                    text-align: center;
+                    margin-top: 15px;
+                    font-weight: bold;
+                    color: #722ed1;
+                  "
+                >
+                  "Write less, Create more."
+                </div>
+              </div>
+            </div>
+          </section>
+        </section>
+        <section data-name="任务分配">
+          <section data-pagetype="section">
+            <h3>任务分配</h3>
+            主要参考群里的《需求管理工具-参考这个工具和Doors.docx》的这个文件。不必完全一样。
+          </section>
+          <section data-pagetype="content">
+            <h3>项目管理（杨帆）</h3>
+            <p>基本信息</p>
+            <img src="image1.png" />
+            <table class="detail-table">
+              <tr>
+                <th><span class="required">*</span>软件名称</th>
+                <td>XX灯光控制软件</td>
+                <th><span class="required">*</span>软件代号</th>
+                <td>Tunnel</td>
+              </tr>
+              <tr>
+                <th><span class="required">*</span>型号名称</th>
+                <td>XX公路信息采集型号</td>
+                <th><span class="required">*</span>型号代号</th>
+                <td>JK001</td>
+              </tr>
+              <tr>
+                <th><span class="required">*</span>关键字</th>
+                <td colspan="3">P00013 ✏️</td>
+              </tr>
+              <tr>
+                <th><span class="required">*</span>标签信息</th>
+                <td colspan="3"></td>
+                <!-- 图像中为空或折叠 -->
+              </tr>
+              <tr>
+                <th>项目描述</th>
+                <td colspan="3">
+                  XX灯光控制软件按照标准定义，根据进入和驶出公路隧道内的车辆以及对隧道灯光的亮度进行调整，从而确保隧道内有良好的可见度，进而保证车辆行驶的安全与顺畅。
+                </td>
+              </tr>
+              <tr>
+                <th><span class="required">*</span>项目负责人</th>
+                <td>需求人员1</td>
+                <th>部门</th>
+                <td>软件室</td>
+              </tr>
+              <tr>
+                <th><span class="required">*</span>项目规模</th>
+                <td>中型</td>
+                <th><span class="required">*</span>项目等级</th>
+                <td>B级</td>
+              </tr>
+              <tr>
+                <th><span class="required">*</span>开始时间</th>
+                <td>2022/02/01</td>
+                <th><span class="required">*</span>结束时间</th>
+                <td>2022/12/30</td>
+              </tr>
+            </table>
+          </section>
+          <section data-pagetype="content">
+            <h3>项目管理（杨帆）</h3>
+            <p>项目成员</p>
+            <img src="image2.png" />
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th style="width: 20%">角色名称</th>
+                  <th style="width: 40%">角色描述</th>
+                  <th style="width: 25%">成员</th>
+                  <th style="width: 15%">操作</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>项目负责人</td>
+                  <td>负责组织软件项目的所有工作</td>
+                  <td>测试用户1, 需求人员1, 需求人员...</td>
+                  <td>
+                    <span class="action-link">分配成员</span>
+                    <span class="separator">|</span>
+                    <span class="action-link">删除</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>软件需求分析人员</td>
+                  <td>负责组织软件的所有软件需求分析工作</td>
+                  <td>软件需求分析人员</td>
+                  <td>
+                    <span class="action-link">分配成员</span>
+                    <span class="separator">|</span>
+                    <span class="action-link">删除</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>软件设计人员</td>
+                  <td>负责组织软件的软件设计工作</td>
+                  <td>软件设计人员</td>
+                  <td>
+                    <span class="action-link">分配成员</span>
+                    <span class="separator">|</span>
+                    <span class="action-link">删除</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>系统需求分析人员</td>
+                  <td>负责组织软件的系统需求分析工作</td>
+                  <td>系统需求分析人员</td>
+                  <td>
+                    <span class="action-link">分配成员</span>
+                    <span class="separator">|</span>
+                    <span class="action-link">删除</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>系统设计人员</td>
+                  <td>负责组织软件的系统设计工作</td>
+                  <td>系统设计人员</td>
+                  <td>
+                    <span class="action-link">分配成员</span>
+                    <span class="separator">|</span>
+                    <span class="action-link">删除</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section data-pagetype="content">
+            <h3>项目管理（杨帆）</h3>
+            <p>数据管理</p>
+            <img src="image3.png" />
+            <table class="file-table">
+              <thead>
+                <tr>
+                  <th style="width: 50%">名称</th>
+                  <th style="width: 25%">下载次数</th>
+                  <th style="width: 25%">操作</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- 空数据状态 -->
+                <tr>
+                  <td colspan="3" class="empty-state">
+                    <span class="empty-icon">🗃️</span>
+                    无数据
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section data-pagetype="content">
+            <h3>需求确认/验证+需求条目变更申请的表单（张瑞瑞）</h3>
+            <p>需求确认和验证的表单基本一致，这里以需求确认为例</p>
+            <img src="image4.png" />
+            <table class="main-table">
+              <!-- 顶部编号行 -->
+              <tr class="header-row">
+                <td class="label-col">编号</td>
+                <td>P00013-ReqChVal-2</td>
+              </tr>
+
+              <!-- 常规字段 -->
+              <tr>
+                <td class="label-col"><span class="required">*</span>名称</td>
+                <td>概要设计需求规划</td>
+              </tr>
+              <tr>
+                <td class="label-col">
+                  <span class="required">*</span>需求文档
+                </td>
+                <td><a href="#">软件任务书</a></td>
+              </tr>
+
+              <!-- 需求内容（嵌套列表） -->
+              <tr>
+                <td class="label-col">
+                  需求内容
+                  <span style="float: right; cursor: pointer">✏️</span>
+                </td>
+                <td style="padding: 0">
+                  <table class="inner-table">
+                    <thead>
+                      <tr>
+                        <th style="width: 30%">编号</th>
+                        <th style="width: 50%">名称</th>
+                        <th style="width: 20%">类型</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><a href="#">P00013-TEXT-8</a></td>
+                        <td><a href="#">运行环境要求</a></td>
+                        <td>章节</td>
+                      </tr>
+                      <tr>
+                        <td><a href="#">P00013-TEXT-10</a></td>
+                        <td><a href="#">技术要求</a></td>
+                        <td>章节</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+
+              <!-- 底部字段 -->
+              <tr>
+                <td class="label-col">
+                  <span class="required">*</span>DAL等级
+                </td>
+                <td>A</td>
+              </tr>
+              <tr>
+                <td class="label-col"><span class="required">*</span>确认人</td>
+                <td>系统管理员</td>
+              </tr>
+              <tr>
+                <td class="label-col">
+                  <span class="required">*</span>确认方法
+                </td>
+                <td>审查</td>
+                <!-- 备注：此处文字较模糊，根据上下文推测为“审查”或“复查” -->
+              </tr>
+              <tr>
+                <td class="label-col">
+                  <span class="required">*</span>确认描述
+                </td>
+                <td>本次确认章节内容</td>
+              </tr>
+            </table>
+            <img src="image5.png" />
+            <table class="main-table">
+              <!-- 顶部编号行 -->
+              <tr class="header-row">
+                <td class="label-col">编号</td>
+                <td colspan="3">P00013-ReqChValReview-1</td>
+              </tr>
+
+              <!-- 常规字段 -->
+              <tr>
+                <td class="label-col"><span class="required">*</span>名称</td>
+                <td colspan="3">概要设计需求规划</td>
+              </tr>
+              <tr>
+                <td class="label-col">
+                  <span class="required">*</span>评审描述
+                </td>
+                <td colspan="3">评审概要设计需求规划阶段的输出</td>
+                <!-- 备注：根据上下文推测 -->
+              </tr>
+
+              <!-- 双列布局行 -->
+              <tr>
+                <td class="label-col">
+                  <span class="required">*</span>DAL等级
+                </td>
+                <td>B</td>
+                <td class="label-col" style="width: 100px">
+                  <span class="required">*</span>需求主管
+                </td>
+                <td>系统管理员</td>
+              </tr>
+
+              <tr>
+                <td class="label-col">
+                  <span class="required">*</span>评审文档
+                </td>
+                <td colspan="3"><a href="#">软件需求</a></td>
+              </tr>
+
+              <!-- 评审对象（嵌套列表） -->
+              <tr>
+                <td class="label-col">评审对象</td>
+                <td colspan="3" style="padding: 0">
+                  <table class="inner-table">
+                    <thead>
+                      <tr>
+                        <th style="width: 30%">编号</th>
+                        <th style="width: 50%">名称</th>
+                        <th style="width: 20%">类型</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><a href="#">P00013-TEXT-17</a></td>
+                        <td><a href="#">标识</a></td>
+                        <td>章节</td>
+                      </tr>
+                      <tr>
+                        <td><a href="#">P00013-TEXT-18</a></td>
+                        <td><a href="#">CSC描述</a></td>
+                        <td>章节</td>
+                      </tr>
+                      <tr>
+                        <td><a href="#">P00013-TEXT-19</a></td>
+                        <td><a href="#">数据描述</a></td>
+                        <!-- 备注：字迹模糊，推测为“数据描述”或“文档描述” -->
+                        <td>章节</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+
+              <!-- 底部字段 -->
+              <tr>
+                <td class="label-col">
+                  <span class="required">*</span>评审人员
+                </td>
+                <td colspan="3">系统管理员</td>
+              </tr>
+            </table>
+          </section>
+          <section data-pagetype="content">
+            <h3>需求确认/验证+需求条目变更申请的表单（张瑞瑞）</h3>
+            <p>需求条目变更申请的表单</p>
+            <img src="image6.png" />
+            <!-- 主表单 -->
+            <table class="form-table">
+              <!-- 章节：基本 -->
+              <tr>
+                <td colspan="4" class="section-header">▼ 基本</td>
+              </tr>
+              <tr>
+                <td class="label-col"><span class="required">*</span>名称</td>
+                <td colspan="3">需求条目属性及标识设置</td>
+              </tr>
+              <tr>
+                <td class="label-col">描述</td>
+                <td colspan="3">需求条目属性及标识设置</td>
+              </tr>
+              <tr>
+                <td class="label-col">所属文档</td>
+                <td colspan="3">rj-v7</td>
+              </tr>
+              <tr>
+                <td class="label-col">修改范围</td>
+                <td colspan="3">
+                  <!-- 嵌套表格：修改范围 -->
+                  <table class="inner-table">
+                    <thead>
+                      <tr>
+                        <th>编号</th>
+                        <th>名称</th>
+                        <th>类型</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><a href="#">RS0019-CDC-C</a></td>
+                        <td><a href="#">基础需求</a></td>
+                        <td>文档</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td class="label-col">所属SQA</td>
+                <td><a href="#">项目级软件质量管理员</a></td>
+                <!-- 备注：文字模糊，根据上下文推测 -->
+                <td class="label-col" style="width: 100px">CR状态</td>
+                <td>待验证</td>
+              </tr>
+              <tr>
+                <td class="label-col">CR对象</td>
+                <td>待验证</td>
+                <td class="label-col">对象数</td>
+                <td></td>
+              </tr>
+
+              <!-- 章节：变更/通知 -->
+              <tr>
+                <td colspan="4" class="section-header">▼ 变更/通知</td>
+              </tr>
+              <tr>
+                <td class="label-col">变更原因</td>
+                <td colspan="3">内部优化</td>
+              </tr>
+              <tr>
+                <td class="label-col"><span class="required">*</span>执行人</td>
+                <td>软件项目人员</td>
+                <td class="label-col">执行日期</td>
+                <td>2022-02-14</td>
+              </tr>
+
+              <!-- 章节：工作流 -->
+              <tr>
+                <td colspan="4" class="section-header">▼ 工作流</td>
+              </tr>
+              <tr>
+                <td colspan="4" style="padding: 0">
+                  <!-- 嵌套表格：工作流列表 -->
+                  <table class="inner-table" style="border: none">
+                    <thead style="background-color: #f8f9fa">
+                      <tr>
+                        <th style="padding: 10px">名称</th>
+                        <th style="padding: 10px">接收时间</th>
+                        <th style="padding: 10px">工作流状态</th>
+                        <th style="padding: 10px">操作</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td style="padding: 10px">
+                          <a href="#">CA流程审批</a>
+                        </td>
+                        <td style="padding: 10px"></td>
+                        <td style="padding: 10px">工作流结束</td>
+                        <td style="padding: 10px">
+                          <a href="#">🔍 查看</a>&nbsp;&nbsp;
+                          <a href="#">📊 流程图</a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </section>
+          <section data-pagetype="content">
+            <h3>需求在线评审（左思琪）</h3>
+            <img src="imgae7.png" />
+            <table>
+              <thead>
+                <tr>
+                  <th style="width: 50px">ID</th>
+                  <th>检查项内容 (Checklist Item)</th>
+                  <th style="width: 150px">当前状态 (Status)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>01</td>
+                  <td>Does the requirement have one "SHALL"...</td>
+                  <td class="status-pass">☑ 通过 (Pass)</td>
+                </tr>
+                <tr>
+                  <td>02</td>
+                  <td>Does the requirement contain a descrip...</td>
+                  <td class="status-pass">☑ 通过 (Pass)</td>
+                </tr>
+                <tr>
+                  <td>03</td>
+                  <td>Is the requirement written as a complete...</td>
+                  <td class="status-pass">☑ 通过 (Pass)</td>
+                </tr>
+                <tr>
+                  <td>04</td>
+                  <td>Is the requirement unique?</td>
+                  <td class="status-pass">☑ 通过 (Pass)</td>
+                </tr>
+                <tr>
+                  <td>05</td>
+                  <td>Is the requirement unambiguous?</td>
+                  <td class="status-pass">☑ 通过 (Pass)</td>
+                </tr>
+                <tr>
+                  <td>06</td>
+                  <td>Can the requirement be verified?</td>
+                  <td class="status-fail">☒ 不通过 (Fail)</td>
+                </tr>
+                <tr>
+                  <td>07</td>
+                  <td>Does the requirement describe a softwar...</td>
+                  <td class="status-pass">☑ 通过 (Pass)</td>
+                </tr>
+                <tr>
+                  <td>08</td>
+                  <td>Are tolerances provided in the requireme...</td>
+                  <td class="status-pass">☑ 通过 (Pass)</td>
+                </tr>
+                <tr>
+                  <td>09</td>
+                  <td>If algorithms are used in the requiremen...</td>
+                  <td class="status-pass">☑ 通过 (Pass)</td>
+                </tr>
+                <tr>
+                  <td>10</td>
+                  <td>Has the requirement been assessed by a...</td>
+                  <td class="status-pass">☑ 通过 (Pass)</td>
+                </tr>
+                <tr>
+                  <td>11</td>
+                  <td>If not derived, is the requirement: the sys...</td>
+                  <td class="status-pass">☑ 通过 (Pass)</td>
+                </tr>
+                <tr>
+                  <td>12</td>
+                  <td>If not a derived requirement, are upstre...</td>
+                  <td class="status-pass">☑ 通过 (Pass)</td>
+                </tr>
+                <tr>
+                  <td>13</td>
+                  <td>If a derived requirement, is the "Derived...</td>
+                  <td class="status-pass">☑ 通过 (Pass)</td>
+                </tr>
+                <tr>
+                  <td>14</td>
+                  <td>If a derived requirement, is it supported...</td>
+                  <td class="status-pass">☑ 通过 (Pass)</td>
+                </tr>
+              </tbody>
+            </table>
+            <ol>
+              <li>Does the requirement have one "SHALL" statement?</li>
+              <li>Does the requirement contain a description?</li>
+              <li>Is the requirement written as a complete sentence?</li>
+              <li>Is the requirement unique?</li>
+              <li>Is the requirement unambiguous?</li>
+              <li>Can the requirement be verified?</li>
+              <li>Does the requirement describe a software function?</li>
+              <li>Are tolerances provided in the requirement?</li>
+              <li>
+                If algorithms are used in the requirement, are they defined?
+              </li>
+              <li>
+                Has the requirement been assessed by a Subject Matter Expert?
+              </li>
+              <li>
+                If not derived, is the requirement traceable to the system
+                requirement?
+              </li>
+              <li>
+                If not a derived requirement, are upstream links provided?
+              </li>
+              <li>If a derived requirement, is the "Derived" attribute set?</li>
+              <li>If a derived requirement, is it supported by rationale?</li>
+            </ol>
+          </section>
+          <section data-pagetype="content">
+            <h3>deadline</h3>
+            <p>deadline才是第一生产力。大家3周之内完成，有AI的辅助真的不困难</p>
+          </section>
+        </section>
+      </div>
+    </div>
+
+    <script src="../dist/reveal.js"></script>
+    <script src="../plugin/notes/notes.js"></script>
+    <script src="../plugin/markdown/markdown.js"></script>
+    <script src="../plugin/highlight/highlight.js"></script>
+    <script src="../plugin/math/math.js"></script>
+    <script src="../plugin/simplemenu/simplemenu.js"></script>
+    <script src="../plugin/logo/logo-plugin.min.js">
+      s
+    </script>
+    <script src="../plugin/appearance/appearance.js"></script>
+    <script src="../plugin/column/column-plugin.min.js"></script>
+    <script src="../plugin/ppt-style-plugin.min.js"></script>
+    <script src="../plugin/mac-window.js"></script>
+    <script>
+      Reveal.initialize({
+        hash: true,
+        simplemenu: {
+          barhtml: {
+            header: "",
+            footer:
+              "<div class='menubar'><p style='font-size: 0.6em;position: absolute; left:20px'><p/><ul style='font-size: 0.8em' class='menu'></ul></div>",
+          },
+        },
+        pageLayoutsPlugin: {
+          enabled: true,
+          cover: {
+            decoratorShape: null,
+            decoratorColor: "black",
+            decoratorSize: "1em",
+            textAlign: "center",
+            decoratorGap: "0.4em",
+          },
+          section: {
+            decoratorShape: "bar",
+            decoratorColor: "darkblue",
+            decoratorSize: "1em",
+            textAlign: "left",
+            decoratorGap: "0.3em",
+          },
+          content: {
+            decoratorShape: "square",
+            decoratorColor: "red",
+            decoratorSize: "0.5em",
+            textAlign: "left",
+            contentTopOffset: "60px",
+            contentLeftOffset: "-100px",
+            decoratorGap: "0.4em",
+          },
+        },
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealNotes,
+          RevealMath.KaTeX,
+          Simplemenu,
+          RevealLogoPlugin,
+          RevealColumnPlugin,
+          Appearance,
+          RevealPPTStylePlugin,
+        ],
+      });
+    </script>
+  </body>
+</html>
